@@ -39,8 +39,3 @@ APP_NAME = "OSSU Interactive Learning Platform"
 # Worker configuration
 [build]
 command = "npm run build"
-
-# Routes for the application
-routes = [
-  { pattern = "ossu-learning.heam.workers.dev/*", zone_name = "heam.workers.dev" }
-]
