@@ -3,7 +3,7 @@ import { handleProgress } from './progress';
 import { handleAI } from './ai';
 import { handleAuth } from './auth';
 import { handleMedia } from './media';
-import { serveStatic } from './static';
+import { handleStatic } from './static';
 
 export async function handleRequest(request, env, ctx) {
   const url = new URL(request.url);
@@ -40,5 +40,5 @@ export async function handleRequest(request, env, ctx) {
   }
 
   // Serve static files (React app)
-  return serveStatic(request, env, ctx);
+  return handleStatic(request, env, ctx);
 }
