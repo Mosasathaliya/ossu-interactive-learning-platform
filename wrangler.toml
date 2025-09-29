@@ -1,0 +1,46 @@
+name = "ossu-learning-platform"
+main = "src/index.js"
+compatibility_date = "2024-09-23"
+compatibility_flags = ["nodejs_compat"]
+
+# KV Namespaces for user data and progress
+[[kv_namespaces]]
+binding = "USER_PROGRESS"
+id = "user_progress_namespace"
+preview_id = "user_progress_preview"
+
+[[kv_namespaces]]
+binding = "COURSE_CACHE"
+id = "course_cache_namespace"
+preview_id = "course_cache_preview"
+
+[[kv_namespaces]]
+binding = "AI_SESSIONS"
+id = "ai_sessions_namespace"
+preview_id = "ai_sessions_preview"
+
+# D1 Database for structured data
+[[d1_databases]]
+binding = "OSSU_DB"
+database_name = "ossu-learning-db"
+database_id = "ossu_learning_database"
+
+# R2 Bucket for media storage
+[[r2_buckets]]
+binding = "MEDIA_STORAGE"
+bucket_name = "ossu-media-bucket"
+
+# Environment variables
+[vars]
+OPENAI_API_KEY = ""
+ENVIRONMENT = "production"
+APP_NAME = "OSSU Interactive Learning Platform"
+
+# Worker configuration
+[build]
+command = "npm run build"
+
+# Routes for the application
+routes = [
+  { pattern = "ossu-learning.heam.workers.dev/*", zone_name = "heam.workers.dev" }
+]
